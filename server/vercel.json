@@ -6,11 +6,7 @@
       "config": {
         "maxLambdaSize": "15mb",
         "runtime": "python3.12",
-        "requirements": "requirements.prod.txt",
-        "environment": {
-          "MYSQLCLIENT_CFLAGS": "-I/usr/include/mysql",
-          "MYSQLCLIENT_LDFLAGS": "-L/usr/lib/mysql -lmysqlclient"
-        }
+        "requirements": "requirements.prod.txt"
       }
     }
   ],
