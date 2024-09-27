@@ -1,0 +1,8 @@
+# Block all crawlers from accessing the /admin and /private directories
+User-agent: *
+Disallow: /admin
+
+# Block a specific crawler (e.g., SemrushBot) from crawling the entire site
+User-agent: SemrushBot
+Disallow: /
+
