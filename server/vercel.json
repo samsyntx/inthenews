@@ -19,6 +19,14 @@
       "dest": "/staticfiles/$1"
     },
     {
+      "src": "/swagger(.*)",
+      "dest": "project/wsgi.py"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "project/wsgi.py"
+    },
+    {
       "src": "/(.*)",
       "dest": "project/wsgi.py"
     }
