@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import NotAuthenticated
+from rest_framework.renderers import JSONRenderer
 
 from .models import Profile
 
@@ -22,12 +23,14 @@ load_dotenv()
 
 class HomeAPI(APIView):
     permission_classes = [IsAuthenticated]
+    renderer_classes = [JSONRenderer]
 
     def get(self, request):
         if not request.user.is_authenticated:
             raise NotAuthenticated(detail="You must be logged in to access this resource.")
         
         user = request.user  
+        
         return Response({
             'message': f'Welcome {user.username}!',
             'email': user.email
