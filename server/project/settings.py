@@ -2,6 +2,7 @@ import secrets
 from datetime import timedelta
 from pathlib import Path
 import os
+import dj_database_url
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -9,8 +10,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -84,6 +84,7 @@ DATABASES = {
         }
     }
 
+DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
