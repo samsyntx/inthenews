@@ -6,7 +6,7 @@ from drf_yasg import openapi
 from dotenv import load_dotenv
 from django.conf import settings
 import os
-
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from authentication.views import RegisterAPI, ConfirmEmailAPI, ResendOTPAPI, LoginAPIView, HomeAPI, ProfileAPIView
 from apis.views import PaginatedBlogListAPIView, BlogCreateAPIView, BlogLatestThreeAPIView, BlogExceptLatestThreeAPIView
 
@@ -23,7 +23,6 @@ schema_view = get_schema_view(
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
-    url=os.getenv('SERVER_URL'),
 )
 
 urlpatterns = [
@@ -32,6 +31,9 @@ urlpatterns = [
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     path('', HomeAPI.as_view(), name='home'),
     path('auth/register/', RegisterAPI.as_view(), name='register'),

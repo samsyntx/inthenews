@@ -22,7 +22,6 @@ import os
 load_dotenv()
 
 class HomeAPI(APIView):
-    permission_classes = [IsAuthenticated]
     renderer_classes = [JSONRenderer]
 
     def get(self, request):
