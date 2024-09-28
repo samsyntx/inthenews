@@ -18,7 +18,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'inthenews.vercel.app', 'vercel.app']
+ALLOWED_HOSTS = [os.getenv('APP_ALLOWED_URL'), "www."+os.getenv('APP_ALLOWED_URL')]
 
 
 # Application definition
