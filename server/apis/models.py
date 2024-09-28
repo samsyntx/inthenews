@@ -23,3 +23,11 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        permissions = [
+            ('create_blog', 'Can create blogs'),
+            ('edit_blog', 'Can edit blogs'),
+            ('read_blog', 'Can read blogs'),
+            ('remove_blog', 'Can delete blogs'),  
+        ]
