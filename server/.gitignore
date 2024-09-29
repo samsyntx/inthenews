@@ -11,6 +11,7 @@ db.sqlite3
 staticfiles/
 
 # Migrations
+*/migrations/
 /migrations/.py
 /migrations/.pyc
 
