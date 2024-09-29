@@ -14,12 +14,19 @@ class Blog(models.Model):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
+    main_heading = models.CharField(max_length=255, blank=True, null=True)  # New field added
     description = models.TextField()
-    cover_image = models.ImageField(upload_to='cover_images/', blank=True, null=True)
+    cover_image_url = models.URLField(max_length=255, blank=True, null=True)  # Updated field type
     topic = models.CharField(max_length=100, choices=TOPIC_CHOICES, default='other')  
     created_at = models.DateTimeField(auto_now_add=True)
     meta_keywords = models.CharField(max_length=255, blank=True, null=True)  
-    content = models.TextField(blank=True, null=True)
+    content1 = models.TextField(blank=True, null=True)
+    content2 = models.TextField(blank=True, null=True)
+    content3 = models.TextField(blank=True, null=True)
+    content4 = models.TextField(blank=True, null=True)
+    image1_url = models.URLField(max_length=255, blank=True, null=True)  # New field added
+    image2_url = models.URLField(max_length=255, blank=True, null=True)  # New field added
+    image3_url = models.URLField(max_length=255, blank=True, null=True)  # New field added
 
     def __str__(self):
         return self.title

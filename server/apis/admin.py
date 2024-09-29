@@ -2,11 +2,13 @@ from django.contrib import admin
 from .models import Blog
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'user', 'topic', 'created_at')
+    list_display = ('title', 'main_heading', 'user', 'topic', 'created_at')  # Added main_heading to display
     
     # Conditionally display the user field for superusers
     def get_fields(self, request, obj=None):
-        fields = ['title', 'description', 'cover_image', 'topic', 'meta_keywords', 'content']
+        fields = ['title', 'main_heading', 'description', 'cover_image_url', 'topic', 'meta_keywords',
+                  'content1', 'content2', 'content3', 'content4', 
+                  'image1_url', 'image2_url', 'image3_url']
         if request.user.is_superuser:
             fields.append('user')  # Allow superusers to choose the blog creator
         return fields

@@ -8,7 +8,7 @@ from django.conf import settings
 import os
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from authentication.views import RegisterAPI, ConfirmEmailAPI, ResendOTPAPI, LoginAPIView, HomeAPI, ProfileAPIView
-from apis.views import PaginatedBlogListAPIView, BlogCreateAPIView, BlogLatestThreeAPIView, BlogExceptLatestThreeAPIView
+from apis.views import PaginatedBlogListAPIView, BlogCreateAPIView, BlogLatestThreeAPIView, BlogExceptLatestThreeAPIView, BlogDetailAPIView
 
 load_dotenv()
 
@@ -47,6 +47,7 @@ urlpatterns = [
     path('blogs/latest/', BlogLatestThreeAPIView.as_view(), name='latest-blogs'),
     path('blogs/except-latest/', BlogExceptLatestThreeAPIView.as_view(), name='except-latest-blogs'),
     path('blogs/', PaginatedBlogListAPIView.as_view(), name='paginated-blogs'),  
+    path('blogs/<int:id>/', BlogDetailAPIView.as_view(), name='blog_detail'),
 ]
 
 if settings.DEBUG or os.getenv('SHOW_SWAGGER_IN_PRODUCTION', 'False') == 'True':
