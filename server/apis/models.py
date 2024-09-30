@@ -14,9 +14,9 @@ class Blog(models.Model):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    main_heading = models.CharField(max_length=255, blank=True, null=True)  # New field added
+    main_heading = models.CharField(max_length=255, blank=True, null=False, default='Main Heading')  
     description = models.TextField()
-    cover_image_url = models.URLField(max_length=255, blank=True, null=True)  # Updated field type
+    cover_image_url = models.URLField(max_length=255, blank=True, null=False, default='https://st2.depositphotos.com/2586633/46477/v/450/depositphotos_464771766-stock-illustration-no-photo-or-blank-image.jpg')  
     topic = models.CharField(max_length=100, choices=TOPIC_CHOICES, default='other')  
     created_at = models.DateTimeField(auto_now_add=True)
     meta_keywords = models.CharField(max_length=255, blank=True, null=True)  

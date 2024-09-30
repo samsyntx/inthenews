@@ -18,7 +18,7 @@ WHITENOISE_USE_FINDERS = True
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
-DEBUG = False
+DEBUG = os.getenv('DEBUG_STATUS')
 
 ALLOWED_HOSTS = [os.getenv('APP_ALLOWED_URL'), "www."+os.getenv('APP_ALLOWED_URL')]
 
