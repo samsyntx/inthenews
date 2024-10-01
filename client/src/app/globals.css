@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "DenverSerial";
-  src: url("/fonts/denver-serial-black-regular.ttf") format("truetype");
+  font-family: "utopiaSemiBold";
+  src: url("/fonts/Utopia Semibold Italic.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -30,7 +30,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "DenverSerial";
+  font-family: "utopiaSemiBold";
+  font-style: italic;
 }
 
 p{

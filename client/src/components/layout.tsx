@@ -1,5 +1,5 @@
 "use client";
-
+import 'dotenv/config'
 import React from "react";
 import { ThemeProvider } from "@material-tailwind/react";
 

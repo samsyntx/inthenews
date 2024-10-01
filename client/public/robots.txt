@@ -1,8 +1,13 @@
-# Block all crawlers from accessing the /admin and /private directories
+# Allow all search engines to access all content
 User-agent: *
-Disallow: /admin
+Disallow:
 
-# Block a specific crawler (e.g., SemrushBot) from crawling the entire site
-User-agent: SemrushBot
-Disallow: /
+# Block specific paths
+# Disallow: /private/
+# Disallow: /temporary/
 
+# Block specific user agents
+# User-agent: BadBot
+# Disallow: /
+
+# Sitemap location (optional)
