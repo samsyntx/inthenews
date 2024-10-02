@@ -13,6 +13,9 @@ const nextConfig = {
       },
     ],
   },
+  typescript: {
+    c: true,
+  },
 };
 
 module.exports = nextConfig; 
