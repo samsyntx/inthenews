@@ -1,19 +1,11 @@
-// components
-import { Navbar, Footer } from "@/components";
+"use client";
+import Common from "@/constant/Common";
+import Hero from "../components/hero";
 
-// sections
-import Hero from "./hero";
-import Posts from "./posts";
-import Articles from "./articles";
-
-export default function Campaign() {
+export default function Home() {
   return (
-    <>
-      <Navbar />
+    <Common>
       <Hero />
-      {/* <Posts /> */}
-      {/* <Articles /> */}
-      <Footer />
-    </>
+    </Common>
   );
 }

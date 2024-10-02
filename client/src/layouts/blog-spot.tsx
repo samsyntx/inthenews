@@ -16,8 +16,7 @@ const BlogSpot = ({
 }) => {
   const isMediumScreen = useMediaQuery("(min-width:719.98px)");
 
-  const { id, title, description, created_at, category, cover_image_url } =
-    detail;
+  const { id, title, description, created_at, topic, cover_image_url } = detail;
 
   return (
     <main className="rounded-lg shadow-md rounded-2xl grow flex flex-col justify-center align-center">
@@ -39,9 +38,7 @@ const BlogSpot = ({
 
       <div className="p-6">
         <div className="flex items-center space-x-2 mb-1 text-sm text-gray-500">
-          <span>{formatDate(created_at)}</span>
-          <span>&middot;</span>
-          <span>{category}</span>
+          <span>{formatDate(created_at) + " • " + topic.toUpperCase()}</span>
         </div>
         <a href={`/blog/${title.split(" ").join("-")}?blog-id=${id}`}>
           <BlogTitle title={title} />

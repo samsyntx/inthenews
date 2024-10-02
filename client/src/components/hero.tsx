@@ -5,13 +5,14 @@ import HeroSkeleton from "@/skeleton/hero-skeleton";
 import { useMediaQuery } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import NetworkError from "./network-error";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 function Hero() {
   const isMediumScreen = useMediaQuery("(min-width:719.98px)");
   const [latestBlog, setLatestBlog] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState({ loading: true, netErr: false });
 
   const fetchLatestBlog = async () => {
     try {
@@ -22,10 +23,10 @@ function Hero() {
         blogTwo: response.data[1],
         blogThree: response.data[2],
       });
-      setIsLoading(false);
+      setIsLoading({ loading: false, netErr: false });
     } catch (error) {
       console.error("Error fetching blog", error);
-      setIsLoading(false);
+      setIsLoading({ loading: false, netErr: true });
     }
   };
 
@@ -33,8 +34,12 @@ function Hero() {
     fetchLatestBlog();
   }, []);
 
-  return isLoading ? (
+  return isLoading.loading ? (
     <HeroSkeleton />
+  ) : isLoading.netErr ? (
+    <div className="md:h-lvh h-auto">
+      <NetworkError />
+    </div>
   ) : (
     <section className="bg-white p-8 flex flex-col md:flex-row gap-3 mb-4">
       <section className="grow flex flex-col grow gap-3">
@@ -43,13 +48,6 @@ function Hero() {
           imageHeight={isMediumScreen ? "300px" : "300px"}
           detail={latestBlog.blogOne}
         />
-        <div
-          className="text-white bg-gradient-to-r from-yellow-100 grow flex justify-center items-center text-center p-3 rounded-lg shadow-lg border-2 border-yellow-100"
-        >
-          <h2 className="text-3xl text-gray-800 font-bold">
-            Unpacking the Trending Topics Captivating Audiences Everywhere!
-          </h2>
-        </div>
       </section>
 
       <section className="flex flex-col gap-3 grow">

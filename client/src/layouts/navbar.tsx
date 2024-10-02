@@ -68,7 +68,7 @@ export function Navbar() {
 
   return (
     <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="w-full mx-auto flex items-center justify-between">
         <div>
           <Typography
             as="a"
@@ -109,7 +109,7 @@ export function Navbar() {
         </IconButton>
       </div>
       <Collapse open={open}>
-        <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
+        <div className="w-full mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">
             {NAV_MENU.map(({ name, icon: Icon }) => (
               <NavItem key={name}>
