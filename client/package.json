@@ -6,7 +6,7 @@
   "homepage": "https://demos.creative-tim.com/nextjs-tailwind-blog-posts-page",
   "scripts": {
     "dev": "next dev",
-    "build": "next build --no-check",
+    "build": "tsc --noEmit && next build",
     "start": "next start",
     "lint": "next lint"
   },
