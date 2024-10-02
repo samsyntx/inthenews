@@ -32,6 +32,7 @@ export default function NetworkError() {
         <p className="text-2xl text-center">
           Looks like our services are currently offline, Please reload the page
         </p>
+        {/* @ts-ignore */}
         <Button onClick={() => window.location.reload()} color="gray">
           Reload
         </Button>

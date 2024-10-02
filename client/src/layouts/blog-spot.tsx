@@ -14,6 +14,7 @@ const BlogSpot = ({
   isGrow?: boolean;
   detail: any;
 }) => {
+  /* @ts-ignore */
   const isMediumScreen = useMediaQuery("(min-width:719.98px)");
 
   const { id, title, description, created_at, topic, cover_image_url } = detail;

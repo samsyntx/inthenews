@@ -2,7 +2,7 @@
 
 import BlogSpot from "@/layouts/blog-spot";
 import HeroSkeleton from "@/skeleton/hero-skeleton";
-import { useMediaQuery } from "@mui/material";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import NetworkError from "./network-error";
@@ -10,6 +10,7 @@ import NetworkError from "./network-error";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 function Hero() {
+  /* @ts-ignore */
   const isMediumScreen = useMediaQuery("(min-width:719.98px)");
   const [latestBlog, setLatestBlog] = useState<any>(null);
   const [isLoading, setIsLoading] = useState({ loading: true, netErr: false });

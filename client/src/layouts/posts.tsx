@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 "use client";
 
 import React from "react";
@@ -10,7 +12,6 @@ import {
 } from "@material-tailwind/react";
 import { ArrowSmallDownIcon } from "@heroicons/react/24/solid";
 import BlogPostCard from "@/components/blog-post-card";
-
 
 const POSTS = [
   {

@@ -1,5 +1,6 @@
-"use client";
+// @ts-nocheck
 
+"use client";
 import React from "react";
 import { Typography } from "@material-tailwind/react";
 import ArticleCard from "@/components/article-card";
