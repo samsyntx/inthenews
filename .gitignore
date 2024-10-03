@@ -1,1 +1,44 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+_pycache_/
+*.env
+
+# Django specific
+db.sqlite3
+/media/
+staticfiles/
+
+# Migrations
+*/migrations/
+/migrations/.py
+/migrations/.pyc
+
+# Virtual environments
+venv/
+.env
+.venv/
+
+# MacOS
 .DS_Store
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+*.log
+
+# Byte-compiled / optimized / DLL files
+*.pyd
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Pytest cache
+.pytest_cache/
