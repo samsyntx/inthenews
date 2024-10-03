@@ -7,7 +7,7 @@ export default function NetworkError() {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
-          className="w-40 h-40 dark:text-gray-400"
+          className="w-40 h-40 text-gray-800"
         >
           <path
             fill="currentColor"
@@ -29,11 +29,11 @@ export default function NetworkError() {
             points="383.958 182.63 360.042 161.37 338.671 185.412 314.63 164.042 293.37 187.958 317.412 209.329 296.042 233.37 319.958 254.63 341.329 230.588 365.37 251.958 386.63 228.042 362.588 206.671 383.958 182.63"
           ></polygon>
         </svg>
-        <p className="text-2xl text-center">
+        <p className=" text-gray-800 text-2xl text-center">
           Looks like our services are currently offline, Please reload the page
         </p>
         {/* @ts-ignore */}
-        <Button onClick={() => window.location.reload()} color="gray">
+        <Button onClick={() => window.location.reload()} color="gray" className="bg-gray-900">
           Reload
         </Button>
       </div>

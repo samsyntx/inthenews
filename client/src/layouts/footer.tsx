@@ -29,7 +29,7 @@ export function Footer() {
         </Typography>
         <Typography
           color="white"
-          className=" md:w-7/12 text-center my-3 text-base mb-4"
+          className=" md:w-7/12 text-center text-base"
         >
           Get news in your inbox every week! We hate spam too, so no worries
           about this.

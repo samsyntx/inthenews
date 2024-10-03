@@ -7,6 +7,7 @@ class CreateBlogSerializer(serializers.ModelSerializer):
         model = Blog
         fields = [
             'title',
+            'slug',
             'main_heading',
             'description',
             'cover_image_url',
@@ -24,12 +25,12 @@ class CreateBlogSerializer(serializers.ModelSerializer):
 class BlogMetaSearializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
-        fields = ['id', 'title', 'description', 'cover_image_url', 'topic', 'meta_keywords', 'created_at']
+        fields = ['id','slug', 'title', 'description', 'cover_image_url', 'topic', 'meta_keywords', 'created_at']
     
 class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
-        fields = ['id','title','main_heading','description','cover_image_url',
+        fields = ['id','slug','title','main_heading','description','cover_image_url',
             'topic',
             'meta_keywords',
             'content1',

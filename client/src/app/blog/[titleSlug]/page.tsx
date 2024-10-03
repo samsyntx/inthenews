@@ -7,7 +7,7 @@ import axios from "axios";
 import { useParams, useSearchParams } from "next/navigation";
 import ReadFullBlog from "@/layouts/ReadFullBlog";
 import BlogDetailsSkeleton from "@/skeleton/post-skeleton";
-import NetworkError from "@/components/network-error";
+import NetworkError from "@/layouts/network-error";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 

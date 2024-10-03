@@ -6,7 +6,7 @@ class BlogAdmin(admin.ModelAdmin):
     
     # Conditionally display the user field for superusers
     def get_fields(self, request, obj=None):
-        fields = ['title', 'main_heading', 'description', 'cover_image_url', 'topic', 'meta_keywords',
+        fields = ['title', 'slug', 'main_heading', 'description', 'cover_image_url', 'topic', 'meta_keywords',
                   'content1', 'content2', 'content3', 'content4', 
                   'image1_url', 'image2_url', 'image3_url']
         if request.user.is_superuser:

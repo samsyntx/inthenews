@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 class Blog(models.Model):
     TOPIC_CHOICES = [
@@ -14,8 +15,9 @@ class Blog(models.Model):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    main_heading = models.CharField(max_length=255, blank=True, null=False, default='Main Heading')  
-    description = models.TextField()
+    main_heading = models.CharField(max_length=255, blank=True, null=False, default='Main Heading') 
+    slug = models.SlugField(max_length=255,  blank=True, null=True) #slug field added
+    description = models.TextField() 
     cover_image_url = models.URLField(max_length=255, blank=True, null=False, default='https://st2.depositphotos.com/2586633/46477/v/450/depositphotos_464771766-stock-illustration-no-photo-or-blank-image.jpg')  
     topic = models.CharField(max_length=100, choices=TOPIC_CHOICES, default='other')  
     created_at = models.DateTimeField(auto_now_add=True)
@@ -27,6 +29,11 @@ class Blog(models.Model):
     image1_url = models.URLField(max_length=255, blank=True, null=True)  # New field added
     image2_url = models.URLField(max_length=255, blank=True, null=True)  # New field added
     image3_url = models.URLField(max_length=255, blank=True, null=True)  # New field added
+
+    def save(self, *args, **kwargs):
+        if not self.slug:  
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
